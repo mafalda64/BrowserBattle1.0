@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Browser Battle</title>
+
+<script type="text/javascript">
+
+
+ var img='x.PNG';
+ var turno=1;
+ var arreglo = new Array();
+ var jug1=0;
+ var jug2=0;
+
+ for(i=0; i<=8; i++){
+
+  arreglo[i]=-1;
+
+ }
+
+ function box(pos){
+
+    if(arreglo[pos]==-1){
+     
+     if(turno==1){
+      if(img=='x.PNG'){
+        document.getElementById('c'+pos).src=img;
+	arreglo[pos]=1;
+        turno=2;
+	img='bola.PNG';
+      }
+      
+     }else if(turno==2){ 
+      if(img=='bola.PNG'){
+       document.getElementById('c'+pos).src=img;
+       arreglo[pos]=0;
+       turno=1;
+       img='x.PNG';
+      }
+
+     }
+
+    }else{ alert('Posicion ocupada!'); }
+    
+
+
+
+  if(arreglo[0]==1 && arreglo[1]==1 && arreglo[2]==1){
+	alert('Firefox triunfa');
+        jug1=jug1+1;
+	limpiar();
+  }
+
+  if(arreglo[0]==0 && arreglo[1]==0 && arreglo[2]==0){
+	alert('Chrome triunfa');
+        jug2=jug2+1;
+	limpiar();
+  }
+  
+  
+  if(arreglo[3]==1 && arreglo[4]==1 && arreglo[5]==1){
+	alert('Firefox triunfa');
+        jug1=jug1+1;
+	limpiar();
+  }
+
+  if(arreglo[3]==0 && arreglo[4]==0 && arreglo[5]==0){
+	alert('Chrome triunfa');
+        jug2=jug2+1;
+	limpiar();
+  }
+  
+  
+  if(arreglo[6]==1 && arreglo[7]==1 && arreglo[8]==1){
+	alert('Firefox triunfa');
+        jug1=jug1+1;
+	limpiar();
+  }
+
+  if(arreglo[6]==0 && arreglo[7]==0 && arreglo[8]==0){
+	alert('Chrome triunfa');
+        jug2=jug2+1;
+	limpiar();
+  }
+  
+  
+  if(arreglo[0]==1 && arreglo[3]==1 && arreglo[6]==1){
+	alert('Firefox triunfa');
+        jug1=jug1+1;
+	limpiar();
+  }
+
+  if(arreglo[0]==0 && arreglo[3]==0 && arreglo[6]==0){
+	alert('Chrome triunfa');
+        jug2=jug2+1;
+	limpiar();
+  }
+  
+  
+  if(arreglo[1]==1 && arreglo[4]==1 && arreglo[7]==1){
+	alert('Firefox triunfa');
+        jug1=jug1+1;
+	limpiar();
+  }
+
+  if(arreglo[1]==0 && arreglo[4]==0 && arreglo[7]==0){
+	alert('Chrome triunfa');
+        jug2=jug2+1;
+	limpiar();
+  }
+  
+  
+  if(arreglo[2]==1 && arreglo[5]==1 && arreglo[8]==1){
+	alert('Firefox triunfa');
+        jug1=jug1+1;
+	limpiar();
+  }
+
+  if(arreglo[2]==0 && arreglo[5]==0 && arreglo[8]==0){
+	alert('Chrome triunfa');
+        jug2=jug2+1;
+	limpiar();
+  }
+  
+  
+  if(arreglo[0]==1 && arreglo[4]==1 && arreglo[8]==1){
+	alert('Firefox triunfa');
+        jug1=jug1+1;
+	limpiar();
+  }
+
+  if(arreglo[0]==0 && arreglo[4]==0 && arreglo[8]==0){
+	alert('Chrome triunfa');
+        jug2=jug2+1;
+	limpiar();
+  }
+  
+  
+  if(arreglo[2]==1 && arreglo[4]==1 && arreglo[6]==1){
+	alert('Firefox triunfa');
+        jug1=jug1+1;
+	limpiar();
+  }
+
+  if(arreglo[2]==0 && arreglo[4]==0 && arreglo[6]==0){
+	alert('Chrome triunfa');
+        jug2=jug2+1;
+	limpiar();
+  }
+
+ document.getElementById('ptsjug1').innerHTML=jug1;
+ document.getElementById('ptsjug2').innerHTML=jug2;
+
+ }
+  
+
+ function limpiar(){
+
+  document.getElementById('reset').src="limpiar_pre.png";
+
+  for(i=0; i<=8; i++){
+     document.getElementById('c'+i).src="fondo.PNG";
+  }
+
+  for(i=0; i<=8; i++){
+     arreglo[i]=-1;
+  }
+
+ }
+
+ function suelta(){
+  document.getElementById('reset').src="limpiar.png";
+ }
+
+ function reiniciar(){
+  jug1=0;
+  jug2=0;
+  document.getElementById('ptsjug1').innerHTML=jug1;
+  document.getElementById('ptsjug2').innerHTML=jug2;
+ }
+
+</script>
+
+</head>
+
+<body>
+
+<center>
+
+<h4>Browser Battle</a></h4>
+
+<table border="0">
+
+
+ <tr>
+    <td style="border-style:solid;border-left-color:#ffffff;border-top-color:#ffffff;"><img src="fondo.PNG" id="c0" onclick="box(0)" /></td>  
+    <td style="border-style:solid;border-left-color:#ffffff;border-top-color:#ffffff;"><img src="fondo.PNG" id="c1" onclick="box(1)" /></td>  
+    <td style="border-style:solid;border-right-color:#ffffff;border-left-color:#ffffff;border-top-color:#ffffff;"><img src="fondo.PNG" id="c2" onclick="box(2)" /></td>  
+ </tr>
+
+ <tr>
+    <td style="border-style:solid;border-left-color:#ffffff;border-top-color:#ffffff;"><img src="fondo.PNG" id="c3" onclick="box(3)" /></td>  
+    <td style="border-style:solid;border-left-color:#ffffff;border-top-color:#ffffff;"><img src="fondo.PNG" id="c4" onclick="box(4)" /></td>  
+    <td style="border-style:solid;border-right-color:#ffffff;border-left-color:#ffffff;border-top-color:#ffffff;"><img src="fondo.PNG" id="c5" onclick="box(5)" /></td>  
+ </tr>
+
+ <tr>
+    <td style="border-style:solid;border-left-color:#ffffff;border-top-color:#ffffff;border-bottom-color:#ffffff;"><img src="fondo.PNG" id="c6" onclick="box(6)" /></td>  
+    <td style="border-style:solid;border-left-color:#ffffff;border-top-color:#ffffff;border-bottom-color:#ffffff;"><img src="fondo.PNG" id="c7" onclick="box(7)" /></td>  
+    <td style="border-style:solid;border-right-color:#ffffff;border-left-color:#ffffff;border-top-color:#ffffff;border-bottom-color:#ffffff;"><img src="fondo.PNG" id="c8" onclick="box(8)" /></td>  
+ </tr>
+
+ <tr>
+    
+ </tr>
+
+ <tr>
+    <th>Firefox</th>  
+    <td>&nbsp;</td>  
+    <th>Chrome</th>  
+ </tr>
+
+ <tr>
+    <td><img src="x.PNG" /></td>  
+    <td><img src="limpiar.png" id="reset" onclick="limpiar()" onmouseout="suelta()" /></td>  
+    <td><img src="bola.PNG" /></td>  
+ </tr>
+
+ <tr>
+    <td><div id="ptsjug1" style="font-weight:bold;text-align:center;">0</div></td>  
+    <td>&nbsp;</td>  
+    <td><div id="ptsjug2" style="font-weight:bold;text-align:center;">0</div></td>  
+ </tr>
+
+</table>
+
+<br />
+<input type="button" value="Reiniciar Puntaje" onclick="reiniciar()" />
+
+</center>
+
+</body>
+
+</html>
